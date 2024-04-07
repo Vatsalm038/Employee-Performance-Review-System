@@ -1,0 +1,79 @@
+<% if(locals.user) {%>
+<div class="container-fluid">
+  <div class="row">
+    
+    <div class="col-md-12 col-lg-7 my-2">
+      <h1 class="text-center">Assigned reviews</h1>
+      <div class="d-flex justify-content-center align-items-center">
+        <div
+          class="d-flex flex-wrap justify-content-center justify-content-lg-start ms-lg-4"
+          style="width: 100%"
+        >
+          <% for(review of assignedReviews) {%>
+          <div class="col-8 col-lg-5 p-2 m-3 rounded shadow">
+            <form
+              action="/review/create/<%=employee._id%>"
+              class="d-flex flex-column"
+              method="POST"
+            >
+              <div class="mb-3">
+                <label for="recipient " class="fw-semibold">Recipient: </label>
+                <input
+                  type="email"
+                  class="form-control mt-2"
+                  id="recipient"
+                  value="<%= review.email %>"
+                  readonly
+                  name="recipient_email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="feedback-form" class="form-label fw-semibold"
+                  >Feedback:</label
+                >
+                <textarea
+                  class="form-control"
+                  id="feedback-form"
+                  name="feedback"
+                  rows="3"
+                ></textarea>
+              </div>
+              <button
+                class="btn btn-primary align-self-end"
+                style="width: 40%"
+                type="submit"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+          <%} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-5 my-2">
+      <h1 class="text-center">Feedbacks by others</h1>
+
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <% for (review of reviewsFromOthers) {%>
+        <div class="p-2 border rounded my-2" style="width: 80%">
+          <dl>
+            <dt class="fw-semibold">
+              Reviewer:
+              <span class="fw-normal">
+                <%= review.reviewer.email %>(<%= review.reviewer.username %>)
+              </span>
+            </dt>
+            <dt class="fw-semibold">
+              Feedback:
+              <span class="fw-normal"> <%= review.review %> </span>
+            </dt>
+          </dl>
+        </div>
+        <%} %>
+      </div>
+    </div>
+  </div>
+</div>
+<%} %>

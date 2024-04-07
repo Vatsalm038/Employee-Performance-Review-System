@@ -1,0 +1,89 @@
+<div class="d-flex justify-content-center p-4 p-md-0">
+  <form
+    class="rounded p-3 col-12 col-md-4 mt-4 shadow-lg"
+    action="/create"
+    method="POST"
+  >
+    <h3 class="mb-3 text-center">Sign up</h3>
+
+    
+    <div class="form-outline mb-2">
+      <label class="form-label" for="username">User name</label>
+      <input
+        type="text"
+        id="name"
+        name="username"
+        class="form-control"
+        required
+      />
+    </div>
+
+    
+    <div class="form-outline mb-2">
+      <label class="form-label" for="email">Email address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="form-outline mb-2">
+      <label class="form-label" for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        required
+      />
+    </div>
+
+  
+    <div class="form-outline mb-2">
+      <label class="form-label" for="confirm_password">Confirm password</label>
+      <input
+        type="password"
+        id="confirm_password"
+        name="confirm_password"
+        class="form-control"
+        required
+      />
+    </div>
+
+   
+    <div class="form-outline mb-2">
+      <label class="form-label" for="role">Role</label>
+      <select
+        class="form-select"
+        id="role"
+        name="role"
+        aria-label="Default select example"
+        required
+      >
+        <option selected value="employee">Employee</option>
+        <option value="admin">Admin</option>
+      </select>
+    </div>
+
+    
+    <div class="my-3 d-flex justify-content-between">
+      
+      <button
+        type="submit"
+        class="btn btn-primary fw-semibold"
+        style="width: 100%"
+      >
+        SIGN UP
+      </button>
+      
+    </div>
+
+    
+    <div class="text-center">
+      <p>Already registered? <a href="/">Login</a></p>
+    </div>
+  </form>
+</div>

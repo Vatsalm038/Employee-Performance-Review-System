@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-md nav-light" style="background: #a1bbdb">
+  <div class="container-fluid">
+    <a class="navbar-brand me-lg-5" href="/">
+     <span class="text-center fw-semibold">Employee Review System</span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <% if(locals.user) {%>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+        <li class="nav-item ms-lg-4">
+          <a class="nav-link fw-semibold" aria-current="page" href="/"
+            ><i class="fa-solid fa-house"></i> Home</a
+          >
+        </li>
+        <% if(locals.user.role === 'admin') {%>
+        <li class="nav-item ms-lg-4">
+          <a
+            class="nav-link fw-semibold"
+            aria-current="page"
+            href="/add-employee"
+            ><i class="fa-solid fa-plus"></i> Add employee</a
+          >
+        </li>
+        <%} %>
+      </ul>
+
+      <form class="d-flex justify-content-end right-0">
+        <div class="btn btn-warning rounded-pill fw-semibold">
+          <i class="fa-solid fa-user"></i> <%= user.username %>
+        </div>
+        <a
+          class="btn btn-danger mx-2 rounded-pill fw-semibold"
+          href="/sign-out"
+        >
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          Sign Out</a
+        >
+      </form>
+    </div>
+    <%} %>
+  </div>
+</nav>
